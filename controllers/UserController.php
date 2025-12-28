@@ -1,12 +1,11 @@
 <?php
 
-use JetBrains\PhpStorm\NoReturn;
-
 require_once '../models/UserModel.php';
 class UserController {
 
     public function login(): void
     {
+        $this->redirectIfLoggedIn();
         // Si formulaire soumis (avec POST)
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = $_POST['email'];
@@ -42,6 +41,7 @@ class UserController {
 
     public function register(): void
     {
+        $this->redirectIfLoggedIn();
         // Si formulaire soumis (avec POST)
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $nom = $_POST['nom'];
@@ -57,7 +57,7 @@ class UserController {
 
             // Vérification du mot de passe
             if (strlen($password) < 8) {
-                $errors[] = 'Mot de passe trop court (8 caracères minimum).';
+                $errors[] = 'Mot de passe trop court (8 caractères minimum).';
             }
             if (!preg_match('/[0-9]/', $password)) {
                 $errors[] = 'Mot de passe doit contenir au moins un chiffre.';
@@ -96,11 +96,19 @@ class UserController {
         require '../views/layouts/footer.php';
     }
 
-    #[NoReturn]
     public function logout(): void
     {
         session_destroy();
         header('Location: index.php?action=home');
         exit;
     }
+
+    private function redirectIfLoggedIn(): void
+    {
+        if (isset($_SESSION['user'])) {
+            header('Location: index.php?action=home');
+            exit;
+        }
+    }
 }
+
