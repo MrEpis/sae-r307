@@ -23,14 +23,14 @@ class UserModel {
     /*
      * Enregistre un nouvel utilisateur dans la BDD
      */
-    public function dbCreateUser($email, $passwordHash, $name, $firstname): void
+    public function dbCreateUser($email, $passwordHash, $name, $firstname)
     {
-        $query = $this->db->prepare("INSERT INTO utilisateur (email, mot_de_passe, nom, prenom) VALUES (:email, :passwordHash, :name, :firstname)");
-        $query->execute(array(
+        $query = $this->db->prepare("INSERT INTO utilisateur (email, mot_de_passe, nom, prenom) VALUES (:email, :mot_de_passe, :nom, :prenom)");
+        return $query->execute(array(
             'email' => $email,
-            'password' => $passwordHash,
-            'name' => $name,
-            'firstname' => $firstname
+            'mot_de_passe' => $passwordHash,
+            'nom' => $name,
+            'prenom' => $firstname
         ));
     }
 

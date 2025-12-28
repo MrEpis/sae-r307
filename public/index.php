@@ -1,5 +1,7 @@
 <?php
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 // Démarrage de la session
 session_start();
 
@@ -30,6 +32,11 @@ switch ($action) {
     case 'connexion':
         $controller = new UserController();
         $controller->login();
+        break;
+
+    case 'inscription':
+        $controller = new UserController();
+        $controller->register();
         break;
 
     default:
