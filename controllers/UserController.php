@@ -21,9 +21,11 @@ class UserController {
                 // Succès : enregistrement du login dans la session
                 $_SESSION['user'] = [
                     'id' => $user['id'],
-                    'name' => $user['nom'] . ' ' . $user['prenom'],
+                    'prenom' => $user['prenom'],
+                    'nom' => $user['nom'],
                     'role' => $user['role'] ?? 'user'
                 ];
+                $_SESSION['success'] = "Connexion réussie. Bienvenue, {$user['prenom']}.";
                 // Redirection vers la page d'accueil
                 header('Location: index.php?action=home');
                 exit;
@@ -78,6 +80,7 @@ class UserController {
                     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
                     // Appel au modèle pour enregistrer l'utilisateur
                     if ($userModel->dbCreateUser($email, $passwordHash, $nom, $prenom)) {
+                        $_SESSION['success'] = "Compte créé avec succès. Vous pouvez maintenant vous connecter.";
                         header('Location: index.php?action=connexion');
                         exit;
                     } else {

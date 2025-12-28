@@ -39,6 +39,11 @@ switch ($action) {
         $controller->register();
         break;
 
+    case 'deconnexion':
+        $controller = new UserController();
+        $controller->logout();
+        break;
+
     default:
         // Page 404 ou redirection vers home
         $controller = new HomeController();
