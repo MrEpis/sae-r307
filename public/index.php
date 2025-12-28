@@ -4,7 +4,7 @@
 session_start();
 
 // Autoload ou inclusion manuelle des fichiers nécessaires
-require_once '../config/db.php';
+require_once '../config/Database.php';
 require_once '../controllers/HomeController.php';
 require_once '../controllers/ResourceController.php';
 require_once '../controllers/UserController.php';
