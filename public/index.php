@@ -29,7 +29,7 @@ switch ($action) {
 
     case 'connexion':
         $controller = new UserController();
-        // Exemple : $controller->login();
+        $controller->login();
         break;
 
     default:
