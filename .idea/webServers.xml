@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="aea85545-85c9-4130-93ba-591a11ddee4a" name="linserv">
+        <fileTransfer accessType="SFTP" host="linserv-info-01.campus.unice.fr" port="22" sshConfigId="644a45ba-a1d7-4bf1-9b72-7d16db45e760" sshConfig="cl401351@linserv-info-01.campus.unice.fr:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,10 @@
+# Configuration de l'IDE (PhpStorm / IntelliJ)
+.idea/
+
+# Bibliothèques externes (gestionnaires de paquets comme Composer)
+vendor/
+
+# Fichiers temporaires ou système
+.DS_Store
+Thumbs.db
+*.log
