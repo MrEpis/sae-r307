@@ -25,9 +25,18 @@ switch ($action) {
 
     case 'ressources':
         $controller = new ResourceController();
-        // Exemple : $controller->index();
+        $controller->list(); // Appelle la méthode pour charger les données et la vue
         break;
 
+    case 'detail':
+        $controller = new ResourceController();
+        $id = $_GET['id'] ?? null; // Récupère l'ID depuis l'URL
+        if ($id) {
+            $controller->detail($id);
+        } else {
+            header('Location: index.php?action=ressources');
+        }
+        break;
     case 'connexion':
         $controller = new UserController();
         // Exemple : $controller->login();
