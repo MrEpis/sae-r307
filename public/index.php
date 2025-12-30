@@ -38,6 +38,13 @@ switch ($action) {
             header('Location: index.php?action=ressources');
         }
         break;
+
+    case 'add_avis':
+        require_once '../controllers/AvisController.php';
+        $controller = new AvisController();
+        $controller->add();
+        break;
+
     case 'connexion':
         $controller = new UserController();
         $controller->login();

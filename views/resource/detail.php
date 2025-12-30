@@ -37,5 +37,7 @@
         <?php endif; ?>
     </div>
 
+
     <p><a href="index.php?action=ressources">Retour au catalogue</a></p>
 <?php endif; ?>
+<?php include __DIR__ . '/../partials/bloc_avis.php'; ?>
