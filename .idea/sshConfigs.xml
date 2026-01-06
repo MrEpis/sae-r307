@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="SshConfigs">
-    <configs>
-      <sshConfig authType="PASSWORD" host="linserv-info-01.campus.unice.fr" id="644a45ba-a1d7-4bf1-9b72-7d16db45e760" port="22" nameFormat="DESCRIPTIVE" username="lb411798" useOpenSSHConfig="true" />
-    </configs>
-  </component>
-</project>
