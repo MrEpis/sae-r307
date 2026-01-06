@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+    /* --- Colours --- */
+
+    --bg-color: #2a2e45;
+    --text-color: #f6f8ff;
+    --primary-color: #a6808c;
+    --accent-color: #347fc4;
+    --accent-color-hover: #1d5379;
+    --surface-color: #363636;
+
+    /* --- Fonts --- */
+    --main-font: Rubik, sans-serif;
+
+    /* --- Spacing --- */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-xxl: 4rem;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--main-font), serif;
+}
+
+a {
+    color: var(--accent-color);
+}
+
+.btn {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: var(--spacing-sm);
+}
+
+.btn:hover {
+    background-color: var(--accent-color-hover);
+}
