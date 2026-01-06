@@ -15,7 +15,7 @@
 <div class="grid-4" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 25px;">
     <?php foreach($nouveautes as $res): ?>
         <div class="card">
-            <img src="<?= !empty($res['image']) ? htmlspecialchars($res['image']) : 'https://via.placeholder.com/300x450?text=Cover' ?>"
+            <img src="<?= !empty($res['image_path']) ? htmlspecialchars($res['image_path']) : 'https://via.placeholder.com/300x450?text=Cover' ?>"
                  alt="Cover" style="width: 100%; height: 250px; object-fit: cover;">
 
             <div class="card-body" style="padding: 15px;">
@@ -31,7 +31,7 @@
 <div class="grid-4" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 25px;">
     <?php foreach($top as $res): ?>
         <div class="card">
-            <img src="<?= !empty($res['image']) ? htmlspecialchars($res['image']) : 'https://via.placeholder.com/300x450?text=Cover' ?>"
+            <img src="<?= !empty($res['image_path']) ? htmlspecialchars($res['image_path']) : 'https://via.placeholder.com/300x450?text=Cover' ?>"
                  alt="Cover" style="width: 100%; height: 250px; object-fit: cover;">
 
             <div class="card-body" style="padding: 15px;">

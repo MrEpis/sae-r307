@@ -151,7 +151,8 @@ class ResourceModel {
         return $stmt->fetchAll();
     }
     // Récupère les 4 dernières ressources ajoutées
-    public function getNouveautes($limit = 4) {
+    public function getNouveautes($limit = 4): array
+    {
         // On trie par ID décroissant (suppose que les derniers ID sont les plus récents)
         $sql = "SELECT * FROM ressource ORDER BY id DESC LIMIT :lim";
         $stmt = $this->db->prepare($sql);
@@ -161,7 +162,8 @@ class ResourceModel {
     }
 
     // Récupère les ressources les mieux notées (Top)
-    public function getTop($limit = 4) {
+    public function getTop($limit = 4): array
+    {
         // Jointure avec la table avis pour calculer la moyenne
         $sql = "SELECT r.*, AVG(a.note) as moy 
                 FROM ressource r 
