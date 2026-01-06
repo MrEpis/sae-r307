@@ -5,7 +5,7 @@
       <paths name="linserv">
         <serverdata>
           <mappings>
-            <mapping deploy="/home/cl401351/www/sae-r307" local="$PROJECT_DIR$" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

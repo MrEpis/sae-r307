@@ -23,7 +23,7 @@
   <component name="PhpInterpreters">
     <interpreters>
       <interpreter id="51a8c5b7-7e56-48eb-9a3f-7f7a221ea37e" name="cl401351@linserv-info-01.campus.unice.fr:22 password" home="sshConfig://DATA" auto="false" debugger_id="php.debugger.XDebug">
-        <remote_data INTERPRETER_PATH="/usr/bin/php" HELPERS_PATH="/home/cl401351/.phpstorm_helpers" VALID="true" RUN_AS_ROOT_VIA_SUDO="false" SSH_CONFIG_ID="644a45ba-a1d7-4bf1-9b72-7d16db45e760" SSH_CONFIG_NAME="cl401351@linserv-info-01.campus.unice.fr:22 password" SSH_CREDENTIALS_ID="sshConfig://cl401351@linserv-info-01.campus.unice.fr:22 password" />
+        <remote_data INTERPRETER_PATH="/usr/bin/php" HELPERS_PATH="/home/cl401351/.phpstorm_helpers" VALID="true" RUN_AS_ROOT_VIA_SUDO="false" SSH_CONFIG_ID="644a45ba-a1d7-4bf1-9b72-7d16db45e760" SSH_CONFIG_NAME="lb411798@linserv-info-01.campus.unice.fr:22 password" SSH_CREDENTIALS_ID="sshConfig://cl401351@linserv-info-01.campus.unice.fr:22 password" />
       </interpreter>
     </interpreters>
   </component>

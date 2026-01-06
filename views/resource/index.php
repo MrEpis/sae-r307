@@ -22,12 +22,12 @@
 $queryString = "&titre=" . urlencode($filters['titre']) . "&genre=" . urlencode($filters['genre']) . "&auteur=" . urlencode($filters['auteur']) . "&type=" . urlencode($filters['type']);
 ?>
 
-<div class="resource-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+<div class="resource-grid">
     <?php foreach ($resources as $res): ?>
         <a href="index.php?action=detail&id=<?php echo $res['id']; ?>">
             <img src="<?php echo htmlspecialchars($res['image_path']); ?>"
                  alt="<?php echo htmlspecialchars($res['titre']); ?>"
-                 style="width: 100%; height: auto;">
+            >
         </a>
     <?php endforeach; ?>
 </div>

@@ -4,7 +4,7 @@
     <h1><?php echo htmlspecialchars($resource['titre']); ?></h1>
 
     <div class="detail-container">
-        <img src="<?php echo htmlspecialchars($resource['image_path']); ?>" alt="Couverture ou Affiche" style="max-width: 300px;">
+        <img src="<?php echo htmlspecialchars($resource['image_path']); ?>" alt="Couverture ou Affiche">
 
         <div class="infos-communes">
             <p><strong>Genre :</strong> <?php echo htmlspecialchars($resource['genre']); ?></p>
