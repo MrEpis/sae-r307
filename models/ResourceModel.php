@@ -20,8 +20,8 @@ class ResourceModel {
 
     public function getById($id) {
         // Ajout de l.annee_publication dans la liste des colonnes SELECT
-        $sql = "SELECT r.*, l.auteur, l.isbn, l.editeur, l.annee_publication, l.nb_pages, l.prix, 
-               f.realisateur, f.synopsis, f.casting, f.duree, f.annee_production 
+        $sql = "SELECT r.*, l.auteur, l.isbn, l.editeur, l.annee_publication, l.nb_pages, l.resume, 
+               f.realisateur, f.synopsis, f.casting, f.duree, f.annee_production, f.lien_bande_annonce
         FROM ressource r 
         LEFT JOIN livre l ON r.id = l.id_ressource 
         LEFT JOIN film f ON r.id = f.id_ressource 

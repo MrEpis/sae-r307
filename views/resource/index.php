@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/ressource.css">
+    <title>Médiathèque Numérique</title>
+</head>
+
 <h1>Catalogue</h1>
 
 <form action="index.php" method="GET">
@@ -24,10 +33,22 @@ $queryString = "&titre=" . urlencode($filters['titre']) . "&genre=" . urlencode(
 
 <div class="resource-grid">
     <?php foreach ($resources as $res): ?>
-        <a href="index.php?action=detail&id=<?php echo $res['id']; ?>">
+        <a href="index.php?action=detail&id=<?php echo $res['id']; ?>" class="film-card">
             <img src="<?php echo htmlspecialchars($res['image_path']); ?>"
-                 alt="<?php echo htmlspecialchars($res['titre']); ?>"
-            >
+                 alt="<?php echo htmlspecialchars($res['titre']); ?>">
+
+            <div class="film-info-overlay">
+                <h3 class="film-title"><?php echo htmlspecialchars($res['titre']); ?></h3>
+                <p class="film-duration">
+                    <?php
+                    if ($res['type_ressource'] == 'film') {
+                        echo $res['duree'] . " min";
+                    } else {
+                        echo $res['nb_pages'] . " pages";
+                    }
+                    ?>
+                </p>
+            </div>
         </a>
     <?php endforeach; ?>
 </div>

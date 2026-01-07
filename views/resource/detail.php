@@ -16,6 +16,9 @@
         <?php if ($resource['type_ressource'] === 'film'): ?>
             <div class="infos-specifiques">
                 <h2>Détails du film</h2>
+                <iframe width="420" height="315"
+                        src=<?php echo str_replace("watch?v=", "embed/", $resource['lien_bande_annonce']); ?>>
+                </iframe>
                 <p><strong>Réalisateur :</strong> <?php echo htmlspecialchars($resource['realisateur']); ?></p>
                 <p><strong>Durée :</strong> <?php echo htmlspecialchars($resource['duree']); ?> minutes</p>
                 <p><strong>Année de production :</strong> <?php echo htmlspecialchars($resource['annee_production']); ?></p>
@@ -32,7 +35,7 @@
                 <p><strong>Année de publication :</strong> <?php echo htmlspecialchars($resource['annee_publication']); ?></p>
                 <p><strong>ISBN :</strong> <?php echo htmlspecialchars($resource['isbn']); ?></p>
                 <p><strong>Nombre de pages :</strong> <?php echo htmlspecialchars($resource['nb_pages']); ?></p>
-                <p><strong>Prix :</strong> <?php echo htmlspecialchars($resource['prix']); ?> €</p>
+                <p><strong>Résumé :</strong> <?php echo htmlspecialchars($resource['resume']); ?></p>
             </div>
         <?php endif; ?>
     </div>
