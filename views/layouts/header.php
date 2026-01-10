@@ -13,7 +13,7 @@
             <li><a href="index.php?action=home">Accueil</a></li>
             <li><a href="index.php?action=ressources">Catalogue</a></li>
             <?php if (isset($_SESSION['user'])) : ?>
-                <li><span>Bonjour, <?= htmlspecialchars($_SESSION['user']['prenom']) ?></span></li>
+                <li><a href="index.php?action=profile">Bonjour, <?= htmlspecialchars($_SESSION['user']['prenom']) ?></a></li>
                 <li><a href="index.php?action=deconnexion" style="color: red;">Se déconnecter</a></li>
             <?php else: ?>
                 <li><a href="index.php?action=connexion">Connexion</a></li>

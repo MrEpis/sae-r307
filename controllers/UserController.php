@@ -22,7 +22,8 @@ class UserController {
                     'id' => $user['id'],
                     'prenom' => $user['prenom'],
                     'nom' => $user['nom'],
-                    'role' => $user['role'] ?? 'user'
+                    'role' => $user['role'] ?? 'membre',
+                    'email' => $email
                 ];
                 $_SESSION['success'] = "Connexion réussie. Bienvenue, {$user['prenom']}.";
                 // Redirection vers la page d'accueil
@@ -109,6 +110,43 @@ class UserController {
             header('Location: index.php?action=home');
             exit;
         }
+    }
+
+    public function profile()
+    {
+        // 1. On vérifie si l'utilisateur est connecté
+        if (!isset($_SESSION['user'])) {
+            header('Location: index.php?action=connexion');
+            exit;
+        }
+
+        $user = $_SESSION['user'];
+        $userModel = new UserModel();
+
+        $data = [
+            'user' => $user,
+            'isAdmin' => $user['role'] === 'admin'
+        ];
+
+        // 2. ADMIN
+        if ($data['isAdmin']) {
+            $data['usersList'] = $userModel->getAllUsers(); // Il voit tous les utilisateurs
+
+            require_once '../models/ResourceModel.php';
+            $resourceModel = new ResourceModel();
+            $data['resourcesList'] = $resourceModel->getAll();
+        }
+
+        // 3. MEMBRE NORMAL
+        else {
+            $data['mesEmprunts'] = $userModel->getUserEmprunts($user['id']); // Il voit ses emprunts
+        }
+
+        // 4. On charge la vue
+        require '../views/layouts/header.php';
+        extract($data);
+        require '../views/user/profile.php';
+        require '../views/layouts/footer.php';
     }
 }
 

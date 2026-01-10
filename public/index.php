@@ -60,6 +60,11 @@ switch ($action) {
         $controller->logout();
         break;
 
+    case 'profile':
+        $controller = new UserController();
+        $controller->profile();
+        break;
+
     default:
         // Page 404 ou redirection vers home
         $controller = new HomeController();

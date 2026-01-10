@@ -34,4 +34,16 @@ class UserModel {
         ));
     }
 
+    public function getUserEmprunts($id_utilisateur)
+    {
+        $query = $this->db->prepare("SELECT e.*, r.titre, r.image_path FROM emprunt e JOIN ressource r ON e.id_ressource = r.id WHERE e.id_utilisateur = :id ORDER BY e.date_emprunt DESC");
+        $query->execute(["id" => $id_utilisateur]);
+        return $query->fetchAll();
+    }
+
+    public function getAllUsers() {
+        $query = "SELECT * FROM utilisateur ORDER BY nom ASC";
+        return $this->db->query($query)->fetchAll();
+    }
+
 }
