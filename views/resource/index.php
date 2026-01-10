@@ -1,22 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/ressource.css">
+    <title>Médiathèque Numérique</title>
+</head>
+
 <h1>Catalogue</h1>
 
-<form action="index.php" method="GET">
-    <input type="hidden" name="action" value="ressources">
+<div class="search-section">
+    <form action="index.php" method="GET" class="search-form">
+        <input type="hidden" name="action" value="ressources">
 
-    <select name="type">
-        <option value="">Tous les types</option>
-        <option value="livre" <?php echo (isset($_GET['type']) && $_GET['type'] == 'livre') ? 'selected' : ''; ?>>Livres</option>
-        <option value="film" <?php echo (isset($_GET['type']) && $_GET['type'] == 'film') ? 'selected' : ''; ?>>Films</option>
-    </select>
+        <div class="search-main">
+            <input type="text" name="titre" placeholder="Rechercher un titre..."
+                   value="<?php echo htmlspecialchars($_GET['titre'] ?? ''); ?>">
+            <button type="submit" class="btn">Rechercher</button>
+        </div>
 
-    <input type="text" name="titre" placeholder="Titre..." value="<?php echo htmlspecialchars($_GET['titre'] ?? ''); ?>">
+        <details class="search-filters">
+            <summary>Filtres avancés</summary>
+            <div class="filters-content">
+                <div class="filter-group">
+                    <label>Type</label>
+                    <select name="type">
+                        <option value="">Tous</option>
+                        <option value="livre" <?php echo (isset($_GET['type']) && $_GET['type'] == 'livre') ? 'selected' : ''; ?>>Livres</option>
+                        <option value="film" <?php echo (isset($_GET['type']) && $_GET['type'] == 'film') ? 'selected' : ''; ?>>Films</option>
+                    </select>
+                </div>
 
-    <input type="text" name="genre" placeholder="Genre (ex: Action)..." value="<?php echo htmlspecialchars($_GET['genre'] ?? ''); ?>">
+                <div class="filter-group">
+                    <label>Genre</label>
+                    <input type="text" name="genre" placeholder="Ex: Action..."
+                           value="<?php echo htmlspecialchars($_GET['genre'] ?? ''); ?>">
+                </div>
 
-    <input type="text" name="auteur" placeholder="Auteur/Réalisateur..." value="<?php echo htmlspecialchars($_GET['auteur'] ?? ''); ?>">
-
-    <button type="submit">Rechercher</button>
-</form>
+                <div class="filter-group">
+                    <label>Auteur / Réalisateur</label>
+                    <input type="text" name="auteur" placeholder="Nom..."
+                           value="<?php echo htmlspecialchars($_GET['auteur'] ?? ''); ?>">
+                </div>
+            </div>
+        </details>
+    </form>
+</div>
 
 <?php
 $queryString = "&titre=" . urlencode($filters['titre']) . "&genre=" . urlencode($filters['genre']) . "&auteur=" . urlencode($filters['auteur']) . "&type=" . urlencode($filters['type']);
@@ -24,10 +53,22 @@ $queryString = "&titre=" . urlencode($filters['titre']) . "&genre=" . urlencode(
 
 <div class="resource-grid">
     <?php foreach ($resources as $res): ?>
-        <a href="index.php?action=detail&id=<?php echo $res['id']; ?>">
+        <a href="index.php?action=detail&id=<?php echo $res['id']; ?>" class="film-card">
             <img src="<?php echo htmlspecialchars($res['image_path']); ?>"
-                 alt="<?php echo htmlspecialchars($res['titre']); ?>"
-            >
+                 alt="<?php echo htmlspecialchars($res['titre']); ?>">
+
+            <div class="film-info-overlay">
+                <h3 class="film-title"><?php echo htmlspecialchars($res['titre']); ?></h3>
+                <p class="film-duration">
+                    <?php
+                    if ($res['type_ressource'] == 'film') {
+                        echo $res['duree'] . " min";
+                    } else {
+                        echo $res['nb_pages'] . " pages";
+                    }
+                    ?>
+                </p>
+            </div>
         </a>
     <?php endforeach; ?>
 </div>

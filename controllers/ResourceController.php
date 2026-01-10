@@ -4,7 +4,7 @@ require_once __DIR__ . '/../models/ResourceModel.php';
 class ResourceController {
     public function list() {
         $model = new ResourceModel();
-        $limit = 20;
+        $limit = 48;
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
         $offset = ($page - 1) * $limit;
 

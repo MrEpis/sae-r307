@@ -1,0 +1,103 @@
+.detail-container {
+    display: flex;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+    background-color: var(--surface-color);
+    padding: var(--spacing-xl);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    align-items: flex-start;
+}
+
+.detail-container img {
+    width: 350px;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.detail-info-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.detail-info-content h1 {
+    margin: 0;
+    color: var(--text-color);
+    font-size: 2.5rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: var(--spacing-sm);
+}
+
+.badge-type {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-sm);
+}
+
+.infos-communes p, .infos-specifiques p {
+    margin: var(--spacing-xs) 0;
+    line-height: 1.6;
+}
+
+.infos-communes strong, .infos-specifiques strong {
+    color: var(--primary-color);
+}
+
+.trailer-container {
+    margin-top: var(--spacing-lg);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #444;
+    max-width: 50%;
+    margin-left: 25%;
+}
+
+.description-text {
+    background-color: rgba(0,0,0,0.2);
+    padding: var(--spacing-md);
+    border-radius: 6px;
+    border-left: 4px solid var(--accent-color);
+    margin-top: var(--spacing-md);
+    font-style: italic;
+}
+
+.trailer-section {
+    margin: var(--spacing-xl) 0;
+    padding: var(--spacing-lg);
+    background-color: var(--surface-color);
+    border-radius: 12px;
+}
+
+.trailer-section h2 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+    border-left: 4px solid var(--accent-color);
+    padding-left: var(--spacing-sm);
+}
+
+.trailer-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #000;
+}
+
+.trailer-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
