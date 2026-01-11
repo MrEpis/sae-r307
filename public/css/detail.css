@@ -101,3 +101,64 @@
     height: 100%;
     border: none;
 }
+
+.detail-container {
+    display: flex;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+    background-color: var(--surface-color);
+    padding: var(--spacing-xl);
+    border-radius: 12px;
+}
+
+/* Style de l'image de couverture */
+.detail-container img {
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid var(--primary-color);
+}
+
+/* --- Bloc Avis --- */
+.avis-block {
+    margin-top: var(--spacing-xxl);
+    background-color: var(--surface-color);
+    padding: var(--spacing-xl);
+    border-radius: 12px;
+}
+
+.avis-block h3 {
+    color: var(--primary-color);
+    border-bottom: 1px solid rgba(166, 128, 140, 0.3);
+    padding-bottom: var(--spacing-sm);
+}
+
+/* Chaque avis individuel */
+.avis-item {
+    background-color: var(--bg-color);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    margin-bottom: var(--spacing-md);
+    border-left: 4px solid var(--accent-color);
+}
+
+.avis-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Formulaire d'avis */
+.avis-block textarea, .avis-block select {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid #444;
+    padding: 10px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+textarea {
+    height: 10rem;
+}
