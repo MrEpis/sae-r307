@@ -40,9 +40,22 @@
                         <strong>Résumé :</strong><br>
                         <?= nl2br(htmlspecialchars($resource['resume'])); ?>
                     </div>
-                </div>
+                    <div class="emprunt-section">
+                        <?php if ($idEmprunteur === null): ?>
+                            <form action="index.php?action=add_emprunt" method="POST">
+                                <input type="hidden" name="id_ressource" value="<?= $resource['id'] ?>">
+                                <button type="submit" class="btn">Emprunter ce livre</button>
+                            </form>
+                        <?php elseif (isset($_SESSION['user']) && $_SESSION['user']['id'] == $idEmprunteur): ?>
+                            <p class="msg-emprunt success">Vous avez déjà emprunté ce livre.</p>
+                        <?php else: ?>
+                            <p class="msg-emprunt error">Ce livre n'est pas disponible actuellement.</p>
+                        <?php endif; ?>
+                    </div>
+
             <?php endif; ?>
         </div>
+    </div>
     </div>
 
     <?php if ($resource['type_ressource'] === 'film' && !empty($resource['lien_bande_annonce'])): ?>

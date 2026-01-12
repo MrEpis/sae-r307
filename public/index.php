@@ -65,6 +65,12 @@ switch ($action) {
         $controller->profile();
         break;
 
+    case 'add_emprunt':
+        require_once '../controllers/EmpruntController.php';
+        $controller = new EmpruntController();
+        $controller->add();
+        break;
+
     default:
         // Page 404 ou redirection vers home
         $controller = new HomeController();

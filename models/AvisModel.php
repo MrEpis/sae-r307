@@ -8,7 +8,6 @@ class AvisModel {
         $this->db = Database::getInstance();
     }
 
-    // Récupérer les avis d'une ressource
     public function getByRessource($id_ressource) {
         $sql = "SELECT a.*, u.prenom, u.nom 
                 FROM avis a 

@@ -162,3 +162,26 @@
 textarea {
     height: 10rem;
 }
+
+.moyenne-container {
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.emprunt-section {
+    margin-top: var(--spacing-lg);
+}
+
+.msg-emprunt {
+    font-weight: bold;
+    padding: var(--spacing-sm);
+    border-radius: 4px;
+}
+
+.msg-emprunt.success {
+    color: #2ecc71;
+}
+
+.msg-emprunt.error {
+    color: #e74c3c;
+}

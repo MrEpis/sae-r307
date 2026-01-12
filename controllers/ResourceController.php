@@ -26,7 +26,15 @@ class ResourceController {
 
     public function detail($id) {
         $model = new ResourceModel();
-        $resource = $model->getById($id); // Récupère toutes les infos de la ressource
+        $resource = $model->getById($id);
+
+        require_once __DIR__ . '/../models/AvisModel.php';
+        $avisModel = new AvisModel();
+        $avisList = $avisModel->getByRessource($id);
+
+        require_once __DIR__ . '/../models/EmpruntModel.php';
+        $empruntModel = new EmpruntModel();
+        $idEmprunteur = $empruntModel->getEmprunteurActuel($id);
 
         require __DIR__ . '/../views/layouts/header.php';
         include __DIR__ . '/../views/resource/detail.php';
