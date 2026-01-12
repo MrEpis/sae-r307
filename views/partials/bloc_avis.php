@@ -8,10 +8,10 @@
     $moyenne = $avisModel->getMoyenne($resource['id']);
     ?>
 
-    <div>
+    <div class="moyenne-container">
         <strong>Note moyenne : </strong>
         <span>
-            <?= $moyenne ? $moyenne . '/5' : 'Pas encore noté' ?>
+            <?= $moyenne ? $moyenne . '/5 ★' : 'Pas encore noté' ?>
         </span>
     </div>
 

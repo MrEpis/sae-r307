@@ -20,8 +20,8 @@ class ResourceModel {
 
     public function getById($id) {
         // Ajout de l.annee_publication dans la liste des colonnes SELECT
-        $sql = "SELECT r.*, l.auteur, l.isbn, l.editeur, l.annee_publication, l.nb_pages, l.prix, 
-               f.realisateur, f.synopsis, f.casting, f.duree, f.annee_production 
+        $sql = "SELECT r.*, l.auteur, l.isbn, l.editeur, l.annee_publication, l.nb_pages, l.resume, 
+               f.realisateur, f.synopsis, f.casting, f.duree, f.annee_production, f.lien_bande_annonce
         FROM ressource r 
         LEFT JOIN livre l ON r.id = l.id_ressource 
         LEFT JOIN film f ON r.id = f.id_ressource 
@@ -38,11 +38,11 @@ class ResourceModel {
 
     public function getPaginated($limit, $offset) {
         // Requête avec LIMIT et OFFSET pour la pagination
-        $sql = "SELECT r.*, l.auteur, f.realisateur 
-            FROM ressource r 
-            LEFT JOIN livre l ON r.id = l.id_ressource 
-            LEFT JOIN film f ON r.id = f.id_ressource 
-            LIMIT :limit OFFSET :offset";
+        $sql = "SELECT r.*, l.auteur, l.nb_pages, f.realisateur, f.duree 
+        FROM ressource r 
+        LEFT JOIN livre l ON r.id = l.id_ressource 
+        LEFT JOIN film f ON r.id = f.id_ressource 
+        LIMIT :limit OFFSET :offset";
 
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
@@ -113,11 +113,11 @@ class ResourceModel {
 
     // Récupère les ressources filtrées avec pagination
     public function searchPaginated($filters, $limit, $offset) {
-        $sql = "SELECT r.*, l.auteur, f.realisateur 
-                FROM ressource r 
-                LEFT JOIN livre l ON r.id = l.id_ressource 
-                LEFT JOIN film f ON r.id = f.id_ressource 
-                WHERE 1=1";
+        $sql = "SELECT r.*, l.auteur, l.nb_pages, f.realisateur, f.duree 
+            FROM ressource r 
+            LEFT JOIN livre l ON r.id = l.id_ressource 
+            LEFT JOIN film f ON r.id = f.id_ressource 
+            WHERE 1=1";
         $params = [];
 
         if (!empty($filters['titre'])) {
