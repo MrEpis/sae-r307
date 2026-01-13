@@ -148,5 +148,13 @@ class UserController {
         require '../views/user/profile.php';
         require '../views/layouts/footer.php';
     }
+
+    public function deleteUser($id): void {
+        $model = new UserModel();
+        $model->deleteUser($id);
+
+        header('Location: index.php?action=profile');
+        exit;
+    }
 }
 

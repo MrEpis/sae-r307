@@ -71,6 +71,14 @@ switch ($action) {
         $controller->add();
         break;
 
+    case 'delete_user':
+        require_once '../controllers/UserController.php';
+        $id = $_GET['id'] ?? null;
+        $controller = new UserController();
+        $controller->deleteUser($id);
+        break;
+
+
     default:
         // Page 404 ou redirection vers home
         $controller = new HomeController();

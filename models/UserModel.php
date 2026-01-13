@@ -46,4 +46,9 @@ class UserModel {
         return $this->db->query($query)->fetchAll();
     }
 
+    public function deleteUser($id_utilisateur) {
+        $query = $this->db->prepare("DELETE FROM utilisateur WHERE id = :id_utilisateur");
+        return $query->execute(array("id_utilisateur" => $id_utilisateur));
+    }
+
 }
