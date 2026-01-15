@@ -8,8 +8,8 @@ class HomeController {
         $model = new ResourceModel();
 
         // 2. Récupérer les listes
-        $nouveautes = $model->getNouveautes(4); // Les 4 derniers
-        $top = $model->getTop(4);               // Les 4 mieux notés
+        $nouveautes = $model->getNouveautes(25);
+        $top = $model->getTop(25);
 
         // 3. Envoyer à la vue (Affichage)
         require __DIR__ . '/../views/layouts/header.php';

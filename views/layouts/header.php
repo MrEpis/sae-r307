@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
     <title>Médiathèque Numérique</title>
 </head>
 <body>

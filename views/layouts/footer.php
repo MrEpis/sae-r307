@@ -20,6 +20,7 @@
         <p>&copy; <?php echo date('Y'); ?> E-Library - SAE R307 - Tous droits réservés.</p>
     </div>
 </footer>
+
 <script>
     // Fonction pour la navbar
     document.addEventListener("DOMContentLoaded", function() {
@@ -38,5 +39,16 @@
         observer.observe(sentinel);
     })
 </script>
+
+
+<script>
+    function scrollContainer(id, distance) {
+        const container = document.getElementById(id);
+        if (container) {
+            container.scrollBy({ left: distance, behavior: 'smooth' });
+        }
+    }
+</script>
+
 </body>
 </html>
